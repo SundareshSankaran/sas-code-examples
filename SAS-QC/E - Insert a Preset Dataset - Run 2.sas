@@ -6,10 +6,17 @@ data Preset;
  25 150 30 3 3
  25 250 10 5 3
  ;
- proc optex data=Candidate seed=12345;
+
+ods excel file="/data/excelfile.xls";
+ proc optex data=Candidate seed=12345 ;
     class Source;
     model Source Solvent|RTemp|Press|Time@2
           RTemp*RTemp Press*Press Time*Time;
     generate n=55 augment=preset;
     output out=Reactor2;
  run;
+
+ods excel close;
+
+proc print data=Reactor2;
+run;
