@@ -1,1 +1,3 @@
-# sas-apro-examples
+# sas-code-examples
+
+Some SAS codes for demonstration purposes.
